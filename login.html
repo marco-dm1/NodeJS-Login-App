@@ -1,0 +1,31 @@
+<html>
+    <head>
+        <title>Login</title>
+        <style>
+            body{
+                background-color: #dceff2;
+                display: grid;
+                place-items: center;
+                justify-content: center;
+            }
+            #loginForm{
+                background-color: #ccdde0;
+                width: 35%;
+                padding: 0 50 50 50;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="loginForm">
+            <h3>Please log in</h3>
+            <form>
+                <label for="accountName">Name:</label>
+                <input id="accountName" type="text">
+                <label for="accountName">Password:</label>
+                <input id="accountPassword" type="password">
+            </form>
+            <button onclick="login()">Login</button>
+            <a href="./register"><button>Register</button></a>
+        </div>
+    </body>
+</html>
