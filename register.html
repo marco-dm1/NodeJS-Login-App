@@ -8,7 +8,7 @@
                 place-items: center;
                 justify-content: center;
             }
-            #loginForm{
+            #registerForm{
                 background-color: #ccdde0;
                 width: 35%;
                 padding: 0 50 50 50;
@@ -16,16 +16,18 @@
         </style>
     </head>
     <body>
-        <div id="loginForm">
-            <h3>Please log in</h3>
+        <div id="registerForm">
+            <h3>Please enter details to register</h3>
             <form>
                 <label for="accountName">Name:</label>
                 <input id="accountName" type="text">
-                <label for="accountName">Password:</label>
+                <label for="accountPassword">Password:</label>
                 <input id="accountPassword" type="password">
+                <label for="accountPasswordConfirm">Confirm Password:</label>
+                <input id="accountPasswordConfirm" type="password">
             </form>
-            <button onclick="login()">Login</button>
-            <a href="./register"><button>Register instead</button></a>
+            <button onclick="register()">Register</button>
+            <a href="./login"><button>Login Instead</button></a>
         </div>
     </body>
 </html>
