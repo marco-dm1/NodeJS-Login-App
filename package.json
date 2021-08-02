@@ -1,0 +1,23 @@
+{
+  "name": "NodeJS-Login-App",
+  "version": "1.0.0",
+  "description": "This app was created to help me learn about web authentication while using Node.JS and MongoDB.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/marco-dm1/NodeJS-Login-App.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/marco-dm1/NodeJS-Login-App/issues"
+  },
+  "homepage": "https://github.com/marco-dm1/NodeJS-Login-App#readme",
+  "dependencies": {
+    "bcrypt": "^5.0.1"
+  }
+}
