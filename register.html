@@ -28,6 +28,35 @@
             </form>
             <button onclick="register()">Register</button>
             <a href="./login"><button>Login Instead</button></a>
+            <script>
+                const accountName = document.getElementById("accountName");
+                const accountPassword = document.getElementById("accountPassword");
+                const accountPasswordConfirm = document.getElementById("accountPassword");
+
+                function register(){
+                    if(accountName.value != "" && accountPassword.value != "" && accountPasswordConfirm.value != ""){
+                        if(accountPasswordConfirm.value == accountPassword.value){
+                            let apiFetch = fetch("./api/register", {
+                                headers: {
+                                    name: accountName.value,
+                                    password: accountPassword.value
+                                }
+                            }).then(function(response){
+                                //response = response.json();
+                                response.json().then(function(responseData){
+                                    console.log("success: " + String(responseData["success"]));
+                                    console.log("status message: " + String(responseData["status_msg"]));
+                                    console.log("token: " + String(responseData["token"]));
+                                }).catch(function(promiseErr){
+                                    console.log("promiseError: ", promiseErr);
+                                })
+                            }).catch(function(err){
+                                console.log("error: ", err)
+                            })
+                        }
+                    }
+                }
+            </script>
         </div>
     </body>
 </html>
