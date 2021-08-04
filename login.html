@@ -13,19 +13,35 @@
                 width: 35%;
                 padding: 0 50 50 50;
             }
+            #logoutButtonContainer{
+                background-color: #ccdde0;
+                display: grid;
+                place-items: center;
+                width: 35%;
+                margin-top: 20px;
+                padding: 10 50 10 50;
+            }
         </style>
     </head>
     <body>
         <div id="loginForm">
             <h3>Please log in</h3>
             <form>
+                <label id="statusMessageHeader" for="accountName" style="color: red;"></label>
                 <label for="accountName">Name:</label>
                 <input id="accountName" type="text">
-                <label for="accountName">Password:</label>
+                <label for="accountPassword">Password:</label>
                 <input id="accountPassword" type="password">
             </form>
+            <script src="./login.js"></script>
             <button onclick="login()">Login</button>
             <a href="./register"><button>Register instead</button></a>
         </div>
+        <div id="logoutButtonContainer">
+            <button id="logoutButton" onclick="logoutClick()" style="display: none;">Logout of Account</button>
+            <script src="./authenticate.js"></script>
+        </div>
+
+        <i><a href="https://github.com/marco-dm1">marco-dm1</a> - 2021</i>
     </body>
 </html>

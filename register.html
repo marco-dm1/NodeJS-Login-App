@@ -13,12 +13,21 @@
                 width: 35%;
                 padding: 0 50 50 50;
             }
+            #logoutButtonContainer{
+                background-color: #ccdde0;
+                display: grid;
+                place-items: center;
+                width: 35%;
+                margin-top: 20px;
+                padding: 10 50 10 50;
+            }
         </style>
     </head>
     <body>
         <div id="registerForm">
             <h3>Please enter details to register</h3>
             <form>
+                <label id="statusMessageHeader" for="accountName" style="color: red;"></label>
                 <label for="accountName">Name:</label>
                 <input id="accountName" type="text">
                 <label for="accountPassword">Password:</label>
@@ -26,37 +35,15 @@
                 <label for="accountPasswordConfirm">Confirm Password:</label>
                 <input id="accountPasswordConfirm" type="password">
             </form>
+            <script src="./register.js"></script>
             <button onclick="register()">Register</button>
             <a href="./login"><button>Login Instead</button></a>
-            <script>
-                const accountName = document.getElementById("accountName");
-                const accountPassword = document.getElementById("accountPassword");
-                const accountPasswordConfirm = document.getElementById("accountPassword");
-
-                function register(){
-                    if(accountName.value != "" && accountPassword.value != "" && accountPasswordConfirm.value != ""){
-                        if(accountPasswordConfirm.value == accountPassword.value){
-                            let apiFetch = fetch("./api/register", {
-                                headers: {
-                                    name: accountName.value,
-                                    password: accountPassword.value
-                                }
-                            }).then(function(response){
-                                //response = response.json();
-                                response.json().then(function(responseData){
-                                    console.log("success: " + String(responseData["success"]));
-                                    console.log("status message: " + String(responseData["status_msg"]));
-                                    console.log("token: " + String(responseData["token"]));
-                                }).catch(function(promiseErr){
-                                    console.log("promiseError: ", promiseErr);
-                                })
-                            }).catch(function(err){
-                                console.log("error: ", err)
-                            })
-                        }
-                    }
-                }
-            </script>
         </div>
+        <div id="logoutButtonContainer">
+            <button id="logoutButton" onclick="logoutClick()" style="display: none;">Logout of Account</button>
+            <script src="./authenticate.js"></script>
+        </div>
+
+        <i><a href="https://github.com/marco-dm1">marco-dm1</a> - 2021</i>
     </body>
 </html>
