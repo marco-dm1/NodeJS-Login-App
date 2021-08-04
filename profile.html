@@ -1,10 +1,22 @@
 <html>
     <head>
         <title>My Profile</title>
+        <style>
+            a{
+                padding: 5px;
+            }
+        </style>
     </head>
     <body>
         <h1>Profile Page</h1>
-        <h2 id="bannerName">Hello</h2>
+        <h2 id="headerName">Hello</h2>
         <h4 id="joinDate">Join Date: </h4>
+        <a href="./login">View Login Page</a>
+        <a href="./register">View Register Page</a>
+        <a href="./profile">View Profile Page</a>
+        <button id="logoutButton" onclick="logoutClick()" style="display: none;">Logout of Account</button>
+        <script src="./authenticate.js"></script>
+
+        <i><a href="https://github.com/marco-dm1">marco-dm1</a> - 2021</i>
     </body>
 </html>
