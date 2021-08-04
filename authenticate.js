@@ -29,15 +29,28 @@ function logoutClick(){
 
 // The login/register pages and no sessionToken don't require requesting data from the server
 if(document.URL.search("/login") == -1 && document.URL.search("/register") == -1 && sessionToken != null){
-    let getData = await fetch("./api/getdata", {
+    console.log("Fetching account data with session token");
+    let getData = fetch("./api/getdata", {
         headers: {
             token: sessionToken,
-        }})
-    getData.then(function(response){
-        response = response.body.json();
-        if(response["success"] == true){
-
-        }
+    }}).then(function(response){
+        response.json().then(function(parseableData){
+            if(parseableData["success"] == true){
+                let headerName = document.getElementById("headerName");
+                let joinDate = document.getElementById("joinDate");
+    
+                console.log("Inserting fetched data where necessary");
+    
+                if(headerName != null){
+                    headerName.innerText = "Hello, " + parseableData["name"];
+                }
+                if(joinDate != null){
+                    joinDate.innerText = parseableData["date"];
+                }
+            }
+        }).catch(function(parseError){
+            console.log("An error occured when parsing data: ", err)
+        })
     }).catch(function(err){
         console.log("An error occured when fetching data: ", err)
     })
